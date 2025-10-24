@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <!-- Declare visibility into specific packages we intend to query (Android 11+) -->
+    <queries>
+        <package android:name="com.amazon.storm.lightning.client.aosp" />
+        <package android:name="com.amazon.storm.lightning.client" />
+        <package android:name="com.amazon.firetv.remote" />
+        <package android:name="com.amazon.storm.lightning.client.fireos" />
+        <package android:name="com.amazon.storm.lightning" />
+        <package android:name="com.amazon.tv.remote" />
+        <!-- Also allow resolving VIEW of the verified link if supported -->
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+            <data android:scheme="https" android:host="getstarted.amazonfiretvapp.com" />
+        </intent>
+    </queries>
+
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE" />
+    <!-- Overlay dot requires user-granted draw-over-apps permission -->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <!-- Foreground service for persistent overlay -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <!-- Package usage stats to detect Fire TV app in foreground -->
+    <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS"
+        tools:ignore="ProtectedPermissions" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.UniRemote">
+        <!-- Amazon WhisperPlay library - optional on non-Fire OS devices -->
+        <uses-library
+            android:name="com.amazon.whisperplay.contracts"
+            android:required="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.UniRemote">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Floating overlay service (assistive dot with volume controls) -->
+        <service
+            android:name=".overlay.FloatingAssistService"
+            android:exported="false"
+            android:foregroundServiceType=""
+            tools:ignore="ForegroundServiceType"
+            />
+
+        <!-- Fire TV volume overlay service -->
+        <service
+            android:name=".overlay.FireTvVolumeService"
+            android:exported="false"
+            android:foregroundServiceType=""
+            tools:ignore="ForegroundServiceType"
+            />
+    </application>
+
+</manifest>

@@ -1,0 +1,6 @@
+# Ensure shell scripts remain executable
+scripts/adb.sh text eol=lf
+scripts/run.sh text eol=lf
+
+# Gradle wrapper should also be executable
+gradlew text eol=lf

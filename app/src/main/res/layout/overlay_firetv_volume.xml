@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/firetv_volume_overlay"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:background="#DD000000"
+    android:padding="8dp"
+    android:elevation="16dp">
+
+    <!-- Volume Down -->
+    <ImageView
+        android:id="@+id/btn_vol_down"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@drawable/ic_volume_down"
+        android:background="@drawable/shape_button_bg"
+        android:padding="10dp"
+        android:contentDescription="Volume Down"
+        android:layout_marginEnd="6dp" />
+
+    <!-- Mute Toggle -->
+    <ImageView
+        android:id="@+id/btn_vol_mute"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@drawable/ic_volume_mute"
+        android:background="@drawable/shape_button_bg"
+        android:padding="10dp"
+        android:contentDescription="Mute"
+        android:layout_marginEnd="6dp" />
+
+    <!-- Volume Up -->
+    <ImageView
+        android:id="@+id/btn_vol_up"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@drawable/ic_volume_up"
+        android:background="@drawable/shape_button_bg"
+        android:padding="10dp"
+        android:contentDescription="Volume Up" />
+
+</LinearLayout>

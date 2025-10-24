@@ -1,0 +1,13 @@
+{
+  "terminal.integrated.env.osx": {
+    "ANDROID_HOME": "${env:HOME}/Library/Android/sdk",
+    "PATH": "${env:HOME}/Library/Android/sdk/platform-tools:${env:HOME}/Library/Android/sdk/emulator:${env:PATH}"
+  },
+  "terminal.integrated.env.linux": {
+    "ANDROID_HOME": "${env:HOME}/Android/Sdk",
+    "PATH": "${env:HOME}/Android/Sdk/platform-tools:${env:HOME}/Android/Sdk/emulator:${env:PATH}"
+  },
+  "files.associations": {
+    "*.gradle.kts": "kotlin"
+  }
+}

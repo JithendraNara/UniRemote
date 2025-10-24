@@ -1,0 +1,176 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Assemble Debug",
+			"type": "shell",
+			"command": "./gradlew",
+			"args": [
+				"assembleDebug"
+			],
+			"group": "build",
+			"problemMatcher": [],
+			"presentation": {
+				"reveal": "always",
+				"panel": "shared"
+			}
+		},
+		{
+			"label": "Clean + Assemble Debug",
+			"type": "shell",
+			"command": "./gradlew",
+			"args": [
+				"clean",
+				"assembleDebug"
+			],
+			"group": "build",
+			"problemMatcher": [],
+			"presentation": {
+				"reveal": "always",
+				"panel": "shared"
+			}
+		},
+		{
+			"label": "Install Debug",
+			"type": "shell",
+			"command": "./gradlew",
+			"args": [
+				"installDebug"
+			],
+			"group": "build",
+			"problemMatcher": [],
+			"presentation": {
+				"reveal": "always",
+				"panel": "shared"
+			}
+		},
+		{
+			"label": "Clean + Install Debug",
+			"type": "shell",
+			"command": "./gradlew",
+			"args": [
+				"clean",
+				"installDebug"
+			],
+			"group": "build",
+			"problemMatcher": [],
+			"presentation": {
+				"reveal": "always",
+				"panel": "shared"
+			}
+		},
+		{
+			"label": "Run App (device or emulator)",
+			"type": "shell",
+			"command": "./scripts/run.sh",
+			"dependsOn": [],
+			"group": {
+				"kind": "test",
+				"isDefault": true
+			},
+			"problemMatcher": [],
+			"presentation": {
+				"reveal": "always",
+				"panel": "shared",
+				"focus": true
+			}
+		},
+		{
+			"label": "Open App (only)",
+			"type": "shell",
+			"command": "./scripts/adb.sh",
+			"args": [
+				"shell",
+				"am",
+				"start",
+				"-n",
+				"com.example.uniremote/.MainActivity"
+			],
+			"problemMatcher": [],
+			"presentation": {
+				"reveal": "always",
+				"panel": "shared"
+			}
+		},
+		{
+			"label": "Show Devices",
+			"type": "shell",
+			"command": "./scripts/adb.sh",
+			"args": [
+				"devices",
+				"-l"
+			],
+			"problemMatcher": [],
+			"presentation": {
+				"reveal": "always",
+				"panel": "shared"
+			}
+		},
+		{
+			"label": "Pair Wireless (enter code in terminal)",
+			"type": "shell",
+			"command": "./scripts/adb.sh",
+			"args": [
+				"pair",
+				"${input:pairEndpoint}"
+			],
+			"problemMatcher": [],
+			"presentation": {
+				"reveal": "always",
+				"panel": "shared"
+			}
+		},
+		{
+			"label": "Connect Wireless Device",
+			"type": "shell",
+			"command": "./scripts/adb.sh",
+			"args": [
+				"connect",
+				"${input:connectEndpoint}"
+			],
+			"problemMatcher": [],
+			"presentation": {
+				"reveal": "always",
+				"panel": "shared"
+			}
+		},
+		{
+			"label": "View Logs (logcat)",
+			"type": "shell",
+			"command": "./scripts/adb.sh",
+			"args": [
+				"logcat",
+				"-v",
+				"color"
+			],
+			"isBackground": true,
+			"problemMatcher": [],
+			"presentation": {
+				"reveal": "always",
+				"panel": "dedicated"
+			}
+		},
+		{
+			"label": "Run App (device or emulator) (adhoc)",
+			"type": "shell",
+			"command": "./scripts/run.sh"
+		},
+		{
+			"label": "Run App (device or emulator) (adhoc)",
+			"type": "shell",
+			"command": "./scripts/run.sh"
+		}
+	],
+	"inputs": [
+		{
+			"id": "pairEndpoint",
+			"type": "promptString",
+			"description": "Enter <ip:port> from device 'Wireless debugging → Pair device with pairing code'"
+		},
+		{
+			"id": "connectEndpoint",
+			"type": "promptString",
+			"description": "Enter <ip:port> from device 'Wireless debugging' (after pairing)"
+		}
+	]
+}

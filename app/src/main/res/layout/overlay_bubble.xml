@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/assist_bubble"
+    android:layout_width="56dp"
+    android:layout_height="56dp"
+    android:background="@drawable/shape_bubble"
+    android:foreground="?android:attr/selectableItemBackgroundBorderless"
+    android:clickable="true"
+    android:focusable="true">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="●"
+        android:textSize="20sp"
+        android:textColor="#FFFFFFFF"/>
+</FrameLayout>

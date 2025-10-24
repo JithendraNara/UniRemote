@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Collapsed handle for Fire TV volume controls -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent">
+    
+    <ImageView
+        android:id="@+id/handle_icon"
+        android:layout_width="48dp"
+        android:layout_height="56dp"
+        android:padding="8dp"
+        android:background="#DD000000"
+        android:src="@drawable/ic_volume_up"
+        android:contentDescription="Fire TV Volume Controls"
+        android:scaleType="centerInside"
+        android:tint="#FFFFFFFF" />
+        
+</FrameLayout>
