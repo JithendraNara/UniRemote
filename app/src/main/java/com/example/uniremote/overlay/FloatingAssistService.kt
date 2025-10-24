@@ -14,7 +14,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.core.app.NotificationCompat
 import com.example.uniremote.MainActivity
-import com.example.uniremote.R
+import com.jithendranara.uniremote.R
 import com.example.uniremote.data.readSettings
 import com.example.uniremote.net.sendRoku
 import com.example.uniremote.net.sendRokuVolumeDown

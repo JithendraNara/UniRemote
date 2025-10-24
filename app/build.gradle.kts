@@ -5,26 +5,38 @@ plugins {
 }
 
 android {
-    namespace = "com.example.uniremote"
+    namespace = "com.jithendranara.uniremote"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.example.uniremote"
+        applicationId = "com.jithendranara.uniremote"
         minSdk = 26
         targetSdk = 35
         versionCode = 1
-        versionName = "1.0"
+        versionName = "1.0.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    signingConfigs {
+        create("release") {
+            // Signing configuration will be added via gradle.properties
+            storeFile = file("../keystore/uniremote-release-key.jks")
+            storePassword = project.findProperty("KEYSTORE_PASSWORD") as String? ?: ""
+            keyAlias = project.findProperty("KEY_ALIAS") as String? ?: ""
+            keyPassword = project.findProperty("KEY_PASSWORD") as String? ?: ""
+        }
     }
 
     buildTypes {
         release {
             isMinifyEnabled = false
+            isShrinkResources = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            signingConfig = signingConfigs.getByName("release")
         }
     }
     compileOptions {
